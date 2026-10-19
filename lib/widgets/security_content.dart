@@ -19,12 +19,12 @@ class SecurityContent extends StatelessWidget {
       Text('Recommended actions',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Color(0xFF10152F) ),),SizedBox(height: 4,),
       Text('Start with the issues that carry the most risk.',style: TextStyle(color: Colors.grey),)
       ,SizedBox(height: 6,),
-buildActions(icon: Icons.warning_amber_rounded, title: 'HIGH PRIORITY', secondTitle: 'Review a known breach',
+buildActions(icon: Icons.gpp_maybe_outlined, title: 'HIGH PRIORITY', secondTitle: 'Review a known breach',
  subtitle: 'your email address associated with netflix appeared in a breach.Exposed data may include email and username',
   secondIcon: Icons.arrow_forward,
   iconColor: Color(0xFFE05252), label: 'Review affected account', backgroundcolor:Colors.red.shade50 ),
 Divider(height: 10,color:Color(0xFFF0F2F5) ,),
-buildActions(icon: Icons.key, title: 'RECOMMENDED',
+buildActions(icon: Icons.key_outlined, title: 'RECOMMENDED',
  secondTitle: 'Replace two weak passwords', subtitle: 'Create unique passwords on SecureVault for Netflix and a saved archive account',
   secondIcon: Icons.arrow_forward, iconColor:Color(0xFFB88722) , label: 'Review weak passwords', 
   backgroundcolor:Color(0xFFFFF3D8)),
@@ -32,7 +32,77 @@ buildActions(icon: Icons.key, title: 'RECOMMENDED',
 buildActions(icon: Icons.content_copy, title:'RECOMMENDED',
  secondTitle: 'Resolve password reuse', subtitle:'The same password pattern was detected across two accounts.The passwords are never shown here', 
  secondIcon: Icons.arrow_forward, iconColor:Color(0xFFB88722),
-  label: 'Review affected accounts', backgroundcolor:Color(0xFFFFF3D8))
+  label: 'Review affected accounts', backgroundcolor:Color(0xFFFFF3D8)),
+
+Container(width: double.infinity,padding: EdgeInsets.all(5),margin: EdgeInsets.all(5),decoration: BoxDecoration( color: Colors.white,
+  border: Border.all(color: Color(0xFFD9DCDF)),
+  borderRadius: BorderRadius.circular(15),
+  ),
+child: Column( crossAxisAlignment: CrossAxisAlignment.start,children: [ 
+ Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,children: [ 
+  Text("Device Security",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Color(0xFF18243D)),),
+  Text('All active',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600,backgroundColor: Colors.green),)
+ ],),
+ Text('Hardware Protections reported by SecureVault.',style: TextStyle(fontSize: 12,color: Color(0xFF858B94)),),SizedBox(height: 12,),
+
+ buildDeviceSecurity(icon: Icons.lock_outlined,
+  title: 'Vault encryption' , subtitle: 'AES-256-GCM', 
+  iconColor:Color(0xFF28669A), 
+ backgroundColor: Color(0xFFE8F1FA)),
+
+Divider(height: 20,color: Color(0xFFF0F2F5),),
+ buildDeviceSecurity(icon: Icons.memory_outlined,
+  title: 'Secure Boot' , subtitle: 'Enabled', 
+   iconColor:Color(0xFF28669A), 
+ backgroundColor: Color(0xFFE8F1FA)),
+
+Divider(height: 20,color: Color(0xFFF0F2F5),),
+ buildDeviceSecurity(icon: Icons.laptop_outlined,
+  title: 'Flash encryption' , subtitle: 'Enabled', 
+   iconColor:Color(0xFF28669A), 
+ backgroundColor: Color(0xFFE8F1FA)), 
+
+Divider(height: 20,color: Color(0xFFF0F2F5),),
+ buildDeviceSecurity(icon: Icons.fingerprint,
+  title: 'Authentication' , subtitle: 'Fingerprint+PIN', 
+   iconColor:Color(0xFF28669A), 
+ backgroundColor: Color(0xFFE8F1FA)), 
+],
+
+),
+),SizedBox(height: 8,),
+
+Container(width: double.infinity,padding: EdgeInsets.all(5),margin: EdgeInsets.all(5),decoration: BoxDecoration( color: Colors.white,
+  border: Border.all(color: Color(0xFFD9DCDF)),
+  borderRadius: BorderRadius.circular(15),
+  ),
+child: Column( crossAxisAlignment: CrossAxisAlignment.start,children: [ 
+ 
+  Text("Privacy boundary",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Color(0xFF18243D)),),
+ 
+ Text('Where your information is handled',style: TextStyle(fontSize: 12,color: Color(0xFF858B94)),),SizedBox(height: 12,), 
+
+
+ buildPrivacyBoundary(icon: Icons.security,
+  title: 'stored on SecureVault' , subtitle: 'Passwords,TOTP secrets and encryption keys', 
+  iconColor:Color(0xFF28669A), 
+ backgroundColor: Color(0xFFE8F1FA)),
+
+Divider(height: 20,color: Color(0xFFF0F2F5),),
+ buildPrivacyBoundary(icon: Icons.phone_iphone_outlined,
+  title: 'Managed by this app' , subtitle: 'Accounts labels ,prefrences and security status', 
+   iconColor:Color(0xFF28669A), 
+ backgroundColor: Color(0xFFE8F1FA)),
+
+Divider(height: 20,color: Color(0xFFF0F2F5),),
+ buildPrivacyBoundary(icon: Icons.language,
+  title: 'External services' , subtitle: 'Limited breach checks only, when enabled', 
+   iconColor:Color(0xFF28669A), 
+ backgroundColor: Color(0xFFE8F1FA)), 
+
+])),
+
+
 
 
 
@@ -43,6 +113,25 @@ buildActions(icon: Icons.content_copy, title:'RECOMMENDED',
     ),);
   }
 }
+
+//widgetCustom
+Widget buildDeviceSecurity ({ 
+  required IconData icon,
+  required String title,
+  required String subtitle,
+  required Color iconColor,
+  required Color backgroundColor
+}){ return Row(crossAxisAlignment: CrossAxisAlignment.start ,children: [
+  Container(width:45,height: 45,decoration: BoxDecoration(color: backgroundColor,borderRadius: BorderRadius.circular(12))
+  ,child: Icon(icon,size: 25,color: iconColor,),),const SizedBox(width: 6,),
+ 
+    Text(title,style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold,color: Color(0xFF18243D)),),const SizedBox(width: 10,),
+    Text(subtitle,style: TextStyle(fontSize: 11,color: Color(0xFF858B94)),),
+
+ ],);
+
+}
+
 
 
 
@@ -116,6 +205,25 @@ child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
  );
 
 }
+//widget custom
+Widget buildPrivacyBoundary ({ 
+  required IconData icon,
+  required String title,
+  required String subtitle,
+  required Color iconColor,
+  required Color backgroundColor
+}){ return Row(crossAxisAlignment: CrossAxisAlignment.start ,children: [
+  Container(width: 44,height: 44,decoration: BoxDecoration(color: backgroundColor,borderRadius: BorderRadius.circular(12))
+  ,child: Icon(icon,size: 25,color: iconColor,),),const SizedBox(width: 12,),
+  Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: [ 
+    Text(title,style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold,color: Color(0xFF18243D)),),const SizedBox(height: 4,),
+    Text(subtitle,style: TextStyle(fontSize: 11,color: Color(0xFF858B94)),),
+  ],)),
+ ],);
+
+}
+
+
 
 
 

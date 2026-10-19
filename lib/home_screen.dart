@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/widgets/accounts_content.dart';
+import 'package:graduation_project/widgets/activity_content.dart';
 import 'package:graduation_project/widgets/home_content.dart';
 import 'package:graduation_project/widgets/security_content.dart';
+import 'package:graduation_project/widgets/settings_content.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
           index: selectedIndex,
           children: [
 
-            const PlaceholderPage(title: 'Accounts'),
+            AcccountsContent(),
 
             SecurityContent(),
 
@@ -39,9 +42,10 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             
-            const PlaceholderPage(title: 'Activity'),
+            ActivityContent(),
 
-            const PlaceholderPage(title: 'Settings'),
+            SettingsContent(),
+
           ],
         ),
       ),

@@ -531,16 +531,15 @@ DateTime lastScan =DateTime.now();
                 Container(
                   width: 70,
                   height: 70,
-
                   decoration: BoxDecoration(
-                    color: const Color(0xFFFFF4D5),
+                    color: Colors.red.shade50,
                     borderRadius: BorderRadius.circular(18),
                   ),
 
                   child: const Icon(
-                    Icons.warning,
+                    Icons.gpp_maybe_outlined,
                     size:38,
-                    color: Color.fromARGB(255, 207, 151, 147),
+                    color: Color(0xFFE05252),
                   ),
                 ),
 
@@ -598,7 +597,7 @@ DateTime lastScan =DateTime.now();
               ],
             ),
           ),
-Container(width: double.infinity, padding: EdgeInsets.all(12),margin: EdgeInsets.all(16),decoration: BoxDecoration( color: Colors.white,
+Container(width: double.infinity, padding: EdgeInsets.all(12),margin: EdgeInsets.all(7),decoration: BoxDecoration( color: Colors.white,
   border: Border.all(color: Color(0xFFD9DCDF)),
   borderRadius: BorderRadius.circular(20),
   ),
@@ -629,9 +628,9 @@ Divider(height: 20,color: Color(0xFFF0F2F5),),
 ],
 
 ),
-),SizedBox(height: 20,),
+),SizedBox(height: 15,),
 
-Container(width: double.infinity, padding: EdgeInsets.all(12),margin: EdgeInsets.all(16),decoration: BoxDecoration( color: Colors.white,
+Container(width: double.infinity, padding: EdgeInsets.all(12),margin: EdgeInsets.all(7),decoration: BoxDecoration( color: Colors.white,
   border: Border.all(color: Color(0xFFD9DCDF)),
   borderRadius: BorderRadius.circular(20),
   ),
