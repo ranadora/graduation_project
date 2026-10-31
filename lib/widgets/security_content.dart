@@ -185,9 +185,10 @@ Container(width: double.infinity,padding: EdgeInsets.all(15),margin: EdgeInsets.
 decoration: BoxDecoration(color: Color(0xFFE6F0FA) ,boxShadow: [BoxShadow(color: Colors.black45)],
 borderRadius: BorderRadius.circular(15)),
 
-child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [ 
+child: Row( children: [ 
                        
-  Icon(Icons.auto_awesome,size: 25,color:Color(0xFF08477B) ,), Column(children: [Text('Reach 94 by resolving open issues', style: TextStyle(
+   Icon(Icons.auto_awesome,size: 25,color:Color(0xFF08477B) ,),Expanded(child :Column(
+    crossAxisAlignment: CrossAxisAlignment.start,children: [Text('Reach 94 by resolving open issues', style: TextStyle(
                         fontSize: 20,
                         color: Color(0xFF08477B),
                         fontWeight: FontWeight.w600,
@@ -195,7 +196,7 @@ child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
   SizedBox(height: 3,), Text('your score helps prioritize actions; it does not guarantee security.',
   style: TextStyle(fontSize: 16,color: Colors.grey))
 
-  ],)
+  ],))
 ],),
 
 )
